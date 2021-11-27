@@ -1,19 +1,18 @@
 import Typed from "typed.js";
+import { shuffle } from "./shuffle";
 
 const queries = JSON.parse(
   atob(
     "W3sicSI6ImJsdWUgd2FmZmxlIiwidCI6ImltZyJ9LHsicSI6Im1lYXRzcGluIiwidCI6InR4dCJ9LHsicSI6ImdvYXRzZSIsInQiOiJpbWcifSx7InEiOiJzdHJpbmcgZW1pbCIsInQiOiJpbWcifSx7InEiOiJsZW1vbiBwYXJ0eSIsInQiOiJ0eHQifSx7InEiOiJteSBsYXp5IHN1bmRheXMiLCJ0IjoidHh0In0seyJxIjoiMSBtYW4gMSBqYXIiLCJ0IjoidHh0In0seyJxIjoiMiBnaXJscyAxIGN1cCIsInQiOiJ0eHQifSx7InEiOiJzd2FwLmF2aSIsInQiOiJ0eHQifSx7InEiOiJjYWxjdWx1cyBicmlkZ2UiLCJ0IjoiaW1nIn0seyJxIjoiZGVnbG92aW5nIiwidCI6ImltZyJ9LHsicSI6Imtyb2tvZGlsIHNpZGUgZWZmZWN0cyIsInQiOiJpbWcifSx7InEiOiJicm93biByZWNsdXNlIGJpdGUiLCJ0IjoiaW1nIn1d"
   )
 );
+shuffle(queries);
 
 let current;
+let currentIndex = 0;
 
 function reset() {
-  let next;
-  do {
-    next = queries[Math.floor(Math.random() * Math.floor(queries.length))];
-  } while (next === current);
-  current = next;
+  current = queries[currentIndex++ % queries.length];
 
   if (window.typed) window.typed.destroy();
 
