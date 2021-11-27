@@ -1,8 +1,10 @@
-import Typed from 'typed.js';
+import Typed from "typed.js";
 
-const queries = JSON.parse(atob(
-  'W3sicSI6ImJsdWUgd2FmZmxlIiwidCI6ImltZyJ9LHsicSI6Im1lYXRzcGluIiwidCI6InR4dCJ9LHsicSI6ImdvYXRzZSIsInQiOiJpbWcifSx7InEiOiJzdHJpbmcgZW1pbCIsInQiOiJpbWcifSx7InEiOiJsZW1vbiBwYXJ0eSIsInQiOiJ0eHQifSx7InEiOiJteSBsYXp5IHN1bmRheXMiLCJ0IjoidHh0In0seyJxIjoiMSBtYW4gMSBqYXIiLCJ0IjoidHh0In0seyJxIjoiMiBnaXJscyAxIGN1cCIsInQiOiJ0eHQifSx7InEiOiJzd2FwLmF2aSIsInQiOiJ0eHQifSx7InEiOiJjYWxjdWx1cyBicmlkZ2UiLCJ0IjoiaW1nIn0seyJxIjoiZGVnbG92aW5nIiwidCI6ImltZyJ9LHsicSI6Imtyb2tvZGlsIHNpZGUgZWZmZWN0cyIsInQiOiJpbWcifSx7InEiOiJicm93biByZWNsdXNlIGJpdGUiLCJ0IjoiaW1nIn1d'
-));
+const queries = JSON.parse(
+  atob(
+    "W3sicSI6ImJsdWUgd2FmZmxlIiwidCI6ImltZyJ9LHsicSI6Im1lYXRzcGluIiwidCI6InR4dCJ9LHsicSI6ImdvYXRzZSIsInQiOiJpbWcifSx7InEiOiJzdHJpbmcgZW1pbCIsInQiOiJpbWcifSx7InEiOiJsZW1vbiBwYXJ0eSIsInQiOiJ0eHQifSx7InEiOiJteSBsYXp5IHN1bmRheXMiLCJ0IjoidHh0In0seyJxIjoiMSBtYW4gMSBqYXIiLCJ0IjoidHh0In0seyJxIjoiMiBnaXJscyAxIGN1cCIsInQiOiJ0eHQifSx7InEiOiJzd2FwLmF2aSIsInQiOiJ0eHQifSx7InEiOiJjYWxjdWx1cyBicmlkZ2UiLCJ0IjoiaW1nIn0seyJxIjoiZGVnbG92aW5nIiwidCI6ImltZyJ9LHsicSI6Imtyb2tvZGlsIHNpZGUgZWZmZWN0cyIsInQiOiJpbWcifSx7InEiOiJicm93biByZWNsdXNlIGJpdGUiLCJ0IjoiaW1nIn1d"
+  )
+);
 
 let current;
 
@@ -13,27 +15,25 @@ function reset() {
   } while (next === current);
   current = next;
 
-  if (window.typed)
-    window.typed.destroy();
+  if (window.typed) window.typed.destroy();
 
-  window.typed = new Typed('#typing', {
+  window.typed = new Typed("#typing", {
     strings: [current.q],
     typeSpeed: 60,
-    startDelay: 800
+    startDelay: 800,
   });
 }
 
 function go() {
   let url = `https://www.google.com/search?q=${encodeURIComponent(current.q)}`;
 
-  if (current.t === 'img')
-    url += '&tbm=isch';
+  if (current.t === "img") url += "&tbm=isch";
 
   window.location = url;
 }
 
-window.addEventListener('load', () => {
-  document.getElementById('google-search').addEventListener('click', go);
-  document.getElementById('try-another').addEventListener('click', reset);
+window.addEventListener("load", () => {
+  document.getElementById("google-search").addEventListener("click", go);
+  document.getElementById("try-another").addEventListener("click", reset);
   reset();
-})
+});
