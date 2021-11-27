@@ -1,8 +1,7 @@
 {
   "name": "dontgoogle",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Whatever you do, don't google...",
   "scripts": {
     "start": "parcel index.html",
     "build": "rimraf ./dist && parcel build --no-source-maps index.html",
@@ -11,10 +10,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^1.11.0",
-    "rimraf": "^2.6.3"
+    "parcel": "^2.0.1",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "typed.js": "^2.0.9"
+    "typed.js": "^2.0.12"
   }
 }
