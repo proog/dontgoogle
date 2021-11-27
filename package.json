@@ -12,8 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "parcel": "^1.11.0",
-    "rimraf": "^2.6.3",
-    "sass": "^1.16.0"
+    "rimraf": "^2.6.3"
   },
   "dependencies": {
     "typed.js": "^2.0.9"
